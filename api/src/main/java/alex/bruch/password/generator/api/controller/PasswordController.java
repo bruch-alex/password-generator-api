@@ -1,13 +1,12 @@
 package alex.bruch.password.generator.api.controller;
 
 import alex.bruch.password.generator.api.service.PasswordService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/my-password-manager")
+@RequestMapping("/my-password-generator")
 public class PasswordController {
 
     private final PasswordService passwordService;
@@ -17,10 +16,12 @@ public class PasswordController {
     }
 
     @GetMapping("/get-password")
-    public String getPassword(@RequestParam(value = "length", required = false, defaultValue = "8") int length,
-                              @RequestParam(value = "upperCase", required = false, defaultValue = "true") boolean upperCase,
-                              @RequestParam(value = "lowerCase", required = false, defaultValue = "true") boolean lowerCase,
-                              @RequestParam(value = "digits", required = false, defaultValue = "true") boolean digits) {
-        return passwordService.getPassword(length, upperCase, lowerCase, digits);
+    @ResponseBody
+    public List<String> getPassword(@RequestParam(value = "length", required = false, defaultValue = "8") int length,
+                                    @RequestParam(value = "upperCase", required = false, defaultValue = "true") boolean upperCase,
+                                    @RequestParam(value = "lowerCase", required = false, defaultValue = "true") boolean lowerCase,
+                                    @RequestParam(value = "digits", required = false, defaultValue = "true") boolean digits,
+                                    @RequestParam(value = "amount", required = false, defaultValue = "1") int amount) {
+        return passwordService.getPassword(amount, length, upperCase, lowerCase, digits);
     }
 }

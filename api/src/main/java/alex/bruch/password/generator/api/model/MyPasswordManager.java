@@ -34,7 +34,7 @@ public class MyPasswordManager {
         } else finalSet.removeAll(digitsDecimal);
     }
 
-    public String generatePassword(int length) {
+    private String generatePassword(int length) {
         StringBuilder password = new StringBuilder();
 
         for (int i = 0; i < length; i++) {
@@ -42,5 +42,13 @@ public class MyPasswordManager {
         }
 
         return password.toString();
+    }
+
+    public List<String> getPassword(int amount, int length) {
+        List<String> passwords = new ArrayList<>();
+        for (int i = 0; i < amount; i++) {
+            passwords.add(generatePassword(length));
+        }
+        return passwords;
     }
 }
