@@ -17,13 +17,13 @@ public class PassphraseServiceImpl implements PassphraseService {
     }
 
     @Override
-    public String getPassphrase(int wordsCount, boolean capitalize) {
+    public String getPassphrase(int wordsCount, boolean capitalize, char separator) {
         StringBuilder passphrase = new StringBuilder();
 
         for (int i = 0; i < wordsCount; i++) {
             passphrase
                     .append(getWord(capitalize))
-                    .append("-");
+                    .append(separator);
         }
         passphrase.deleteCharAt(passphrase.length() - 1);
         return passphrase.toString();
