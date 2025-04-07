@@ -17,7 +17,8 @@ public class PassphraseController {
     @ResponseBody
     public String getPassphrase(@RequestParam(value = "words", required = false, defaultValue = "3") int words,
                                 @RequestParam(value = "capitalize", required = false, defaultValue = "false") boolean capitalize,
-                                @RequestParam(value = "separator", required = false, defaultValue = "-") char separator) {
-        return passphraseService.getPassphrase(words, capitalize, separator);
+                                @RequestParam(value = "separator", required = false, defaultValue = "-") char separator,
+                                @RequestParam(value = "includeNumber", required = false, defaultValue = "false") boolean includeNumber) {
+        return passphraseService.getPassphrase(words, capitalize, separator, includeNumber);
     }
 }
