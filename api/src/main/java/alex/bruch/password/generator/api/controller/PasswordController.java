@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/my-password-generator")
+@RequestMapping("/generator")
 public class PasswordController {
 
     private final PasswordService passwordService;
