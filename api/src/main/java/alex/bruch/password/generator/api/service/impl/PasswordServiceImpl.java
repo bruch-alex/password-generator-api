@@ -1,6 +1,7 @@
-package alex.bruch.password.generator.api.service;
+package alex.bruch.password.generator.api.service.impl;
 
 import alex.bruch.password.generator.api.model.MyPasswordManager;
+import alex.bruch.password.generator.api.service.PasswordService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
