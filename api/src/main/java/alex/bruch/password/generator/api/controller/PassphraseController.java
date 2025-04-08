@@ -4,7 +4,7 @@ import alex.bruch.password.generator.api.service.PassphraseService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/generator")
+@RequestMapping("/passphrase")
 public class PassphraseController {
 
     private final PassphraseService passphraseService;
@@ -13,7 +13,7 @@ public class PassphraseController {
         this.passphraseService = passphraseService;
     }
 
-    @GetMapping("/get-passphrase")
+    @GetMapping("/get")
     @ResponseBody
     public String getPassphrase(@RequestParam(value = "words", required = false, defaultValue = "3") int words,
                                 @RequestParam(value = "capitalize", required = false, defaultValue = "false") boolean capitalize,
